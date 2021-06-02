@@ -1,0 +1,10 @@
+.equal-height-column{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+.equal-column-content{
+    height: 100%;
+}
