@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Home from "./components/Home/Home";
+import PostDeatils from "./components/PostDetails/PostDeatils";
 import Profile from "./components/Profile/Profile";
 import User from "./components/User/User";
 
@@ -22,6 +23,9 @@ function App() {
              </Route>
              <Route exact path="/user">
                <User />
+             </Route>
+             <Route path ="/item/:id">
+               <PostDeatils />
              </Route>
            </Switch>
         </Router>

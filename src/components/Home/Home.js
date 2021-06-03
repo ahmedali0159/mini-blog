@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 
 const Home = () => {
   const [items, setItems] = useState([]);
   const [visible, setVisible] = useState(10);
+  const history = useHistory();
 
   const handleLoadMore = () => {
     setVisible((previousValue) => previousValue + 10);
@@ -23,7 +25,7 @@ const Home = () => {
       <div className="container mt-5">
       <div className="row gy-5 equal-height-column"> 
       {items.slice(0, visible).map((item) => (
-          <div className="col-sm-4">
+          <div key={item.id} className="col-sm-4">
               <div className="equal-column-content">
             <div class="card h-100">
               <div class="card-body">
@@ -31,7 +33,7 @@ const Home = () => {
                 <p class="card-text">{item.body}</p>
                 </div>
                 <div className="text-center border-top-0 mb-1">
-                  <button class="btn btn-success ">View Details</button>
+                  <button onClick={() => history.push(`item/${item.id}`)} class="btn btn-success ">View Details</button>
                 </div>
               </div>
             </div>
@@ -40,7 +42,7 @@ const Home = () => {
       </div>
         <div className=" text-center mt-3">
           <button
-            className="btn btn-primary details-btn"
+            className="btn btn-dark details-btn"
             onClick={handleLoadMore}
           >
             Load More
