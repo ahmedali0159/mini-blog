@@ -9,10 +9,11 @@ import Home from "./components/Home/Home";
 import PostDeatils from "./components/PostDetails/PostDeatils";
 import Profile from "./components/Profile/Profile";
 import User from "./components/User/User";
+import {ContextProvider} from './components/Context/Context';
 
 function App() {
   return (
-   <>
+   <ContextProvider>
         <Router>
            <Switch>
              <Route exact path="/">
@@ -29,7 +30,7 @@ function App() {
              </Route>
            </Switch>
         </Router>
-   </>
+   </ContextProvider>
   );
 }
 
